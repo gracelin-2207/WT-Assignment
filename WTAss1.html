@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Travel Bucket List</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0;  
+            color: #000000;
+            background-image: url("travel-bg.jpg");
+            background-size: border-box;
+            background-position: center;
+            padding: 20px;
+        }
+
+        header {/*Header Box*/
+            text-align: center;
+            padding: 20px 0;
+            background-color: #d39d9d;
+            color: rgb(42, 40, 40);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        section {/*Remaining Boxs*/
+            background-color: rgb(241, 204, 204);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {/*Heading & Bottom Line*/
+            color: #4f0000;
+            border-bottom: 2px solid #6d02028f;
+            padding-bottom: 5px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        .image-gallery img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+        }
+        .drop-zone {/*Drop Image Box*/
+            border: 2px dashed #023150;
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 5px;
+            background-color: #f0f8ff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;/*Table Border Merge*/
+            margin: 20px 0;
+        }
+        th, td {
+            background-color: white;/* For Table Background*/
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {/*Table Heading Background & font*/
+            background-color: #af3a1d;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        form {
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        footer {/*Bottom Footer Box*/
+            text-align: center;
+            padding: 20px;
+            background-color: #f7d5ee;
+            color: rgb(0, 0, 0);
+            border-radius: 5px;
+        }
+        .destination img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .caption {
+            text-align: center;
+            margin: 10px;
+            margin-top: 5px;
+            font-size: 14px;
+            color: #260000;
+        }
+
+         .destination-box {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+            .destinations {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .destination-item {
+            width: 100;
+            height: 200px;
+            display: flex;
+            align-items: flex-end;
+            padding: 10px;
+            border-radius: 8px;
+            background-size: border-box;
+            background-position: center;
+            color: white;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-shadow: 1px 1px 4px black;
+        }
+        .kyoto {
+            background-image: url("kyoto.jpg");
+        }
+        .santorini {
+            background-image: url("santorini.jpg");
+        }
+        .paris {
+            background-image: url("paris.jpg");
+        }
+        .disneyland {
+            background-image: url("disneyland.jpg");
+        }
+        .queenstown {
+            background-image: url("queenstown.jpg");
+        }
+        #note-box {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f7d5ee;
+            border: 1px solid #ffeeba;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Travel Bucket List</h1>
+        <p>Planning & Collection of Memories From My Dream Destination</p>
+        <audio controls loop>
+            <source src="The Life of Ram Karaoke - 96 Karaoke.mp3" type="audio/mpeg"><!--audio added from downloaded file-->
+            Your browser does not support the audio element.
+        </audio>
+    </header>
+        <section id="top-destinations">
+        <h2>Favorite Dream Destinations</h2>
+        <div class="destination-box">
+            <div class="destination-item kyoto">
+                <span>Seoul, South Korea</span>
+            </div>
+            <div class="destination-item santorini">
+                <span>Santorini, Greece</span>
+            </div>
+            <div class="destination-item paris">
+                <span>Paris Eiffel Tower</span>
+            </div>
+            <div class="destination-item disneyland">
+                <span>Disneyland</span>
+            </div>
+            <div class="destination-item queenstown">
+                <span>Queenstown, New Zealand</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="activities">
+        <h2>Plans To Be FullFilled</h2>
+        <ul>
+            <li>See cherry blossoms in Seoul</li>
+            <li>Watch sunset in Santorini</li>
+            <li>Enojoy the nightlights at Eiffel Tower Paris</li>
+            <li>Ride the Big Thunder Mountain in Disneyland</li>
+            <li>Try bungee jumping in New Zealand</li>
+        </ul>
+    </section>
+
+    <section id="destination-comparison">
+        <h2>Comparison of Destinations </h2>
+        <table>
+            <tr>
+                <th>Place</th>
+                <th>Best Time to Visit</th>
+                <th>Budget</th>
+                <th>Rating (1-5)</th>
+            </tr>
+            <tr>
+                <td>Seoul, South Korea</td>
+                <td>March-April (Cherry Blossoms)</td>
+                <td>$2,500</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>Santorini, Greece</td>
+                <td>May-June or September-October</td>
+                <td>$3,000</td>
+                <td>4.5</td>
+            </tr>
+            <tr>
+                <td>Eiffel Tower, Paris</td>
+                <td>March-May</td>
+                <td>$2,400</td>
+                <td>5</td>
+            </tr>
+             <tr>
+                <td>Disneyland, Paris</td>
+                <td>April-May or September</td>
+                <td>$2,600</td>
+                <td>5</td>
+            </tr>
+             <tr>
+                <td>Queenstown, New Zealand</td>
+                <td>November-February</td>
+                <td>$5,000</td>
+                <td>4</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="gallery">
+        <h2>Destination Gallery Folder</h2>
+        <div class="image-gallery">
+            <div><img src="japan.jpg" alt="Seoul with cherry blossoms" draggable="true">
+            <p class="caption">Seoul, South Korea (March 2022)</p></div>
+            <div><img src="greece.jpg" alt="White buildings in Santorini with blue domes" draggable="true">
+            <p class="caption">Santorini, Greece (June 2023)</p></div>
+            <div><img src="tower.jpg" alt="Eiffel Tower in Paris" draggable="true">
+            <p class="caption">Paris Eiffel Tower (May 2024)</p></div>
+            <div><img src="disney.jpg" alt="Disneyland of Paris" draggable="true">
+            <p class="caption">Disneyland, Paris (May 2024)</p></div>
+            <div><img src="bungee.jpg" alt="Bungee Jumping View" draggable="true">
+            <p class="caption">Queenstown, New Zealand (January 2025)</p></div>
+        </div>
+       
+        <div class="drop-zone" id="dropZone">
+            Drop your favorite destination image here!
+        </div>
+    </section>
+
+    <section id="video">
+        <h2>Travel Inspiration Video</h2>
+        <!--video added without downloading file--> 
+            <iframe width="100%" height="315" 
+                src="https://www.youtube.com/embed/b_cKMNgxaVI" 
+                title="YouTube travel video" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        <p>Or watch this <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">travel video on YouTube</a></p>
+    </section>
+
+    <section id="trip-planner">
+        <h2>Plan Your Trip</h2>
+        <form>
+            <div class="form-group">
+                <label for="season">Preferred Travel Season:</label>
+                <select id="season" name="season">
+                    <option value="spring">Spring</option>
+                    <option value="summer">Summer</option>
+                    <option value="autumn">Autumn</option>
+                    <option value="winter">Winter</option>
+                </select>
+            </div>
+           
+            <div class="form-group">
+                <label for="trip-date">Planned Trip Date:</label>
+                <input type="date" id="trip-date" name="trip-date">
+            </div>
+            <div class="form-group">
+                <label for="budget">Budget Preference (per person):</label>
+                <input type="range" id="budget" name="budget" min="500" max="5000" step="100" value="1500">
+                <span id="budget-value">$1500</span>
+                <button type="button" onclick="addNote()" id="addNoteBtn">Add Note</button> <!--type button is to activate the onclick within the given box -->
+                <div id="note-box">
+                <p><strong>Trip Note:</strong> <span id="note-text">No note yet</span></p>
+             </div>
+            </div>
+        </form>
+    </section>
+
+    <footer>
+        <p>Created with ❤️ for My Lifetime Memory | &copy; 2023 My Travel Dreams</p>
+    </footer>
+
+    <script>
+        // Simple script to show the budget value
+        const dropZone = document.getElementById('dropZone');
+        const galleryImages = document.querySelectorAll('.image-gallery figure');
+
+        galleryImages.forEach(img => {
+            img.addEventListener('dragstart', e => {
+                e.dataTransfer.setData('text/html', img.outerHTML);
+            });
+        });
+
+        dropZone.addEventListener('dragover', e => {
+            e.preventDefault();
+            dropZone.style.backgroundColor = '#d0f0d0';
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.style.backgroundColor = '#f0f8ff';
+        });
+
+        dropZone.addEventListener('drop', e => {
+            e.preventDefault();
+            dropZone.style.backgroundColor = '#f0f8ff';
+            const data = e.dataTransfer.getData('text/html');
+            dropZone.innerHTML += data;
+        });
+        const budgetSlider = document.getElementById('budget');
+        const budgetValue = document.getElementById('budget-value');
+       
+        budgetSlider.addEventListener('input', function() {
+            budgetValue.textContent = '$' + this.value;
+        });
+        function addNote() {
+            const season = document.getElementById("season").value;
+            const date = document.getElementById("trip-date").value;
+            const budget = document.getElementById("budget").value;
+            const noteText = `Season: ${season} | Date: ${date} | Budget: $${budget}`;
+            document.getElementById("note-box").innerHTML = `<strong>Trip Note:</strong> ${noteText}`;   
+        }
+
+    </script>
+</body> 
+</html>
