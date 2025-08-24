@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Life Expectancy Predictor</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#c48888; padding:20px; }
+    h1 { text-align:center; }
+    p.desc { text-align:center; font-style:italic; color:#2e2d2dc2; margin-bottom:20px; }
+    form {
+      max-width:600px; margin:auto; background:#fff; padding:20px;
+      border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    }
+    label { display:block; margin-top:12px; font-weight:bold; }
+    input, select {
+      width:100%; padding:8px; margin-top:5px; border:1px solid #efefef;
+      border-radius:6px;
+    }
+    button {
+      margin-top:20px; padding:10px 16px; background:#374957;
+      border:none; color:#fff; border-radius:6px; cursor:pointer;
+    }
+    .foods { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+    .foods label { font-weight:normal; }
+  </style>
+</head>
+<body>
+  <h1>⚡ Life Expectancy Predictor</h1>
+  <p class="desc">This is a fun & educational tool to estimate lifespan based on basic lifestyle inputs. 
+  ⚠️ It is <b>not medical advice</b> – just a simulation.</p>
+
+  <form id="lifeForm">
+    <label>Name:</label>
+    <input type="text" id="name" required>
+
+    <label>Upload Picture:</label>
+    <input type="file" id="picture" accept="image/*">
+
+    <label>Gender:</label>
+    <select id="gender">
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+    </select>
+
+    <label>Locality:</label>
+    <input type="text" id="locality">
+
+    <label>Age:</label>
+    <input type="number" id="age" min="1" required>
+
+    <label>Favorite Foods:</label>
+    <div class="foods">
+      <label><input type="checkbox" value="pizza"> Pizza</label>
+      <label><input type="checkbox" value="burger"> Burger</label>
+      <label><input type="checkbox" value="fries"> Fries</label>
+      <label><input type="checkbox" value="salad"> Salad</label>
+      <label><input type="checkbox" value="fruit"> Fruits</label>
+      <label><input type="checkbox" value="biryani"> Biryani</label>
+      <label><input type="checkbox" value="vegtable"> Vegtable</label>
+      <label><input type="checkbox" value="fish"> Fish</label>
+    </div>
+
+    <label>Lifestyle:</label>
+    <select id="lifestyle">
+      <option>Non-Smoker</option>
+      <option>Smoker</option>
+      <option>Alcohol</option>
+      <option>Regular Exercise</option>
+      <option>Poor Sleep</option>
+    </select>
+
+    <label>Medical History:</label>
+    <select id="medical">
+      <option>None</option>
+      <option>Diabetes</option>
+      <option>Blood Pressure</option>
+      <option>Heart Disease</option>
+    </select>
+
+    <label>Diet Type:</label>
+    <select id="diet">
+      <option>Vegetarian</option>
+      <option>Non-Vegetarian</option>
+      <option>Mixed</option>
+      <option>Junk Food Lover</option>
+    </select>
+
+    <label>Stress Level:</label>
+    <select id="stress">
+      <option>Low</option>
+      <option>Medium</option>
+      <option>High</option>
+    </select>
+
+    <button type="submit">Go to Result</button>
+  </form>
+
+<script>
+document.getElementById('lifeForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  let foods = [...document.querySelectorAll('.foods input:checked')].map(f=>f.value);
+  let pictureFile = document.getElementById('picture').files[0];
+
+  let reader = new FileReader();
+  reader.onload = function(){
+    let data = {
+      name: document.getElementById('name').value,
+      gender: document.getElementById('gender').value,
+      locality: document.getElementById('locality').value,
+      age: document.getElementById('age').value,
+      foods: foods,
+      lifestyle: document.getElementById('lifestyle').value,
+      medical: document.getElementById('medical').value,
+      diet: document.getElementById('diet').value,
+      stress: document.getElementById('stress').value,
+      picture: reader.result || ""
+    };
+    localStorage.setItem('userData', JSON.stringify(data));
+    window.location.href="result.html";
+  };
+  if(pictureFile){ reader.readAsDataURL(pictureFile); }
+  else {
+    let data = {
+      name: document.getElementById('name').value,
+      gender: document.getElementById('gender').value,
+      locality: document.getElementById('locality').value,
+      age: document.getElementById('age').value,
+      foods: foods,
+      lifestyle: document.getElementById('lifestyle').value,
+      medical: document.getElementById('medical').value,
+      diet: document.getElementById('diet').value,
+      stress: document.getElementById('stress').value,
+      picture: ""
+    };
+    localStorage.setItem('userData', JSON.stringify(data));
+    window.location.href="result.html";
+  }
+});
+</script>
+</body>
+</html>
